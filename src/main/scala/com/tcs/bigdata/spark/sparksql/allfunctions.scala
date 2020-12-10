@@ -21,10 +21,21 @@ object allfunctions {
   msprop.setProperty("password","mspassword")
   msprop.setProperty("driver","com.microsoft.sqlserver.jdbc.SQLServerDriver")
 
-  val ourl ="jdbc:oracle:thin:@//sqooppoc.cjxashekxznm.ap-south-1.rds.amazonaws.com:1521/ORCL"
+  val ourl ="jdbc:oracle:thin:@//myoracledb.conadtfguis7.ap-south-1.rds.amazonaws.com:1521/ORCL"
   val oprop = new java.util.Properties()
   oprop.setProperty("user","ousername")
   oprop.setProperty("password","opassword")
+ // oprop.setProperty("fetchsize","1000") // its use huge amount of resources
+ // oprop.setProperty("batchsize","10000")// same like fetchsize, applicable write
+ // oprop.setProperty("sessionInitStatement","delete from asl where pk=null")
+ // oprop.setProperty("truncate","true") // instread of drop table, truncate data (structure still existing)
+  //result.write.mode(SaveMode.Overwrite).jdbc(ourl,"result",oprop)
+  //overwrite ...backend .. drop table, and recreate table ..
+  //create tab test(name varchar(128), age long); before
+  // drop test create again ... create table test(name varchar(32), age int)
   oprop.setProperty("driver","oracle.jdbc.OracleDriver")
+ // oprop.setProperty("createTableColumnTypes", "name CHAR(64), comments VARCHAR(1024), age long") // oracle must support datatype
+ // oprop.setProperty("customSchema","name String, comments String, age Byte") //spark point of view
+ // oprop.setProperty("createTableOptions","")
 
 }

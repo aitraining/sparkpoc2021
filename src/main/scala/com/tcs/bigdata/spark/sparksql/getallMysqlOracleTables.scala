@@ -41,8 +41,13 @@ object getallMysqlOracleTables {
     //not optimize
 
 
-
+val city = Array("hyd","mas","del","mum")
+   val all= city.foreach {x=>
+      val qury = s"select * from india where city=${x}"
+    }
     val df = spark.read.jdbc(url, query, prop)
+
+
     df.show(9)
     val alltab  = df.select("table_name").rdd.map(r => r(0)).collect.toList
     // alltab.foreach(println)

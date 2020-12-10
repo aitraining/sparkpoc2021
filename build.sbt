@@ -3,6 +3,8 @@ name := "sparkpoc2020"
 version := "0.1"
 
 scalaVersion := "2.11.12"
+// https://mvnrepository.com/artifact/org.apache.bahir/spark-streaming-twitter
+libraryDependencies += "org.apache.bahir" %% "spark-streaming-twitter" % "2.4.0"
 
 // https://mvnrepository.com/artifact/org.apache.spark/spark-sql
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.4.5"
@@ -25,3 +27,8 @@ libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.11.12"
 
 // https://mvnrepository.com/artifact/com.databricks/spark-xml
 libraryDependencies += "com.databricks" %% "spark-xml" % "0.4.1"
+// https://mvnrepository.com/artifact/org.apache.spark/spark-avro
+libraryDependencies += "org.apache.spark" %% "spark-avro" % "2.4.5"
+// https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector
+libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "2.5.1"
+

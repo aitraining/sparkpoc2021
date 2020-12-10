@@ -13,7 +13,7 @@ object complexcsv {
     import spark.sql
 val data = "file:///C:\\work\\datasets\\10000Records.csv"
     val df = spark.read.format("csv").option("inferSchema","true").option("dateFormat","dd/MM/YYYY").option("delimiter",",").option("header","true").load(data)
-    df.createOrReplaceTempView("tab")
+    //df.createOrReplaceTempView("tab")
     df.show()
     df.printSchema()
 

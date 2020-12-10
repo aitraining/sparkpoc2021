@@ -1,6 +1,6 @@
 package com.tcs.bigdata.spark.sparksql
 
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 
 object getOracleMysqlMssqldata {
@@ -23,7 +23,7 @@ object getOracleMysqlMssqldata {
 
     employee.show();
     val ourl = "jdbc:oracle:thin://@oracle.cchcz22yzyo4.ap-southeast-1.rds.amazonaws.com:1521/ORACLEDB"
-    val otable = "dept"
+    val otable = "(select * from india where city='hyd') t"
     val oprop = new java.util.Properties
     oprop.setProperty("driver", "oracle.jdbc.OracleDriver");
     oprop.setProperty("user", "ousername")
@@ -36,10 +36,10 @@ object getOracleMysqlMssqldata {
     dept.cache()
 
     val result = spark.sql("select m.ename, m.sal, o.loc from mysqltab m join oracletab o on (m.deptno=o.deptno)")
-    result.show()
+    result.show(5)
    // result.write.format("com.databricks.spark.csv").option("header","true").save("file:////home/hadoop/Desktop/result/mysqloracledata")
 //store data in oracle again
-    result.write.jdbc(ourl,"result",oprop)
+    result.write.mode(SaveMode.Overwrite).jdbc(ourl,"result",oprop)
     spark.stop()
   }
 }
