@@ -41,8 +41,6 @@ object jsoncomplex_worldbank {
     // |-- mjtheme: array (nullable = true)
     // |    |-- element: string (containsNull = true)
     // |-- in MJtheme u have array if u have only array use flattern its good
-
-
  //   res.write.jdbc(ourl, "wordbankjsontab",oprop)
 
     res.show()

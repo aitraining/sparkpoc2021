@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="sbt: com.datastax.oss:java-driver-shaded-guava:25.1-jre-graal-sub-1:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.datastax.oss/java-driver-shaded-guava/jars/java-driver-shaded-guava-25.1-jre-graal-sub-1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/com.datastax.oss/java-driver-shaded-guava/srcs/java-driver-shaded-guava-25.1-jre-graal-sub-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -2,6 +2,7 @@ package com.tcs.bigdata.spark.sparksql
 
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
+import org.apache.spark.storage._
 
 object getOracleMysqlMssqldata {
   def main(args: Array[String]) {
@@ -19,7 +20,10 @@ object getOracleMysqlMssqldata {
     mprop.setProperty("user", "musername")
     mprop.setProperty("password", "mpassword");
 
+
     val employee = spark.read.jdbc(murl, mtable, mprop)
+    employee.cache()
+    employee.persist(StorageLevel.MEMORY_AND_DISK_SER) // 10 times faster
 
     employee.show();
     val ourl = "jdbc:oracle:thin://@oracle.cchcz22yzyo4.ap-southeast-1.rds.amazonaws.com:1521/ORACLEDB"

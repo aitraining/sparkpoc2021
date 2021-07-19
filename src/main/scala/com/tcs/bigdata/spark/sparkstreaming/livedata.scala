@@ -36,11 +36,7 @@ val df = x.map(x=>x.split(",")).map(x=>(x(0),x(1),x(2))).toDF("name","age","city
      blr.write.mode(SaveMode.Append).format("org.apache.spark.sql.cassandra").options(Map( "table" -> "blr", "keyspace" -> "venuks")).save()
      //other.write.mode(SaveMode.Append).format("org.apache.spark.sql.cassandra").options(Map( "table" -> "blr", "keyspace" -> "venuks")).save()
      df.show()
-
    }
-
-
-
     ssc.start()             // Start the computation
     ssc.awaitTermination()  // Wait for the computation to terminate
   }

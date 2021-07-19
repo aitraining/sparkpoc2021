@@ -8,13 +8,14 @@ object complexcsv {
     val spark = SparkSession.builder.master("local[*]").appName("complexcsv").getOrCreate()
     //    val ssc = new StreamingContext(spark.sparkContext, Seconds(10))
     val sc = spark.sparkContext
-
+sc.setLogLevel("ERROR")
     import spark.implicits._
     import spark.sql
 val data = "file:///C:\\work\\datasets\\10000Records.csv"
     val df = spark.read.format("csv").option("inferSchema","true").option("dateFormat","dd/MM/YYYY").option("delimiter",",").option("header","true").load(data)
     //df.createOrReplaceTempView("tab")
     df.show()
+
     df.printSchema()
 
     //DATA Cleaning
